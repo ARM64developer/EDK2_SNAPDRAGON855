@@ -1,0 +1,58 @@
+#
+#  Copyright (c) 2018, Linaro Limited. All rights reserved.
+#
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+
+[Defines]
+  DEC_SPECIFICATION              = 0x0001001a
+  PACKAGE_NAME                   = F11
+  PACKAGE_GUID                   = 7eb1de03-3910-4d1d-84ce-c17b53636b9a
+  PACKAGE_VERSION                = 0.1
+
+################################################################################
+#
+# Include Section - list of Include Paths that are provided by this package.
+#                   Comments are used for Keywords and Module Types.
+#
+# Supported Module Types:
+#  BASE SEC PEI_CORE PEIM DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SMM_DRIVER DXE_SAL_DRIVER UEFI_DRIVER UEFI_APPLICATION
+#
+################################################################################
+[Includes.common]
+  Include                        # Root include for the package
+
+[Guids.common]
+  gF11TokenSpaceGuid        = { 0x99a14446, 0xaad7, 0xe460, {0xb4, 0xe5, 0x1f, 0x79, 0xaa, 0xa4, 0x93, 0xfd } }
+# BootSplash 93be6759-7d1a-4d69-986d-d78e54c9f930
+  gLumiaBootSplashAppGuid = { 0x93be6759, 0x7d1a, 0x4d69, { 0x98, 0x6d, 0xd7, 0x8e, 0x54, 0xc9, 0xf9, 0x30 } }
+
+[Protocols]
+  gEFIDroidKeypadDeviceProtocolGuid = { 0xb27625b5, 0x0b6c, 0x4614, { 0xaa, 0x3c, 0x33, 0x13, 0xb5, 0x1d, 0x36, 0x46 } }
+
+
+[PcdsFixedAtBuild.common]
+  # Simple FrameBuffer
+  gF11TokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
+  gF11TokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
+  gF11TokenSpaceGuid.PcdMipiFrameBufferHeight|2340|UINT32|0x0000a402
+  gF11TokenSpaceGuid.PcdMipiFrameBufferPixelBpp|66|UINT32|0x0000a403
+  gF11TokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1080|UINT32|0x0000a404
+  gF11TokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2340|UINT32|0x0000a405
+
+  # RTC information
+  gF11TokenSpaceGuid.PcdBootShimInfo1|0xb0000000|UINT64|0x00000a601
+# SMBIOS
+  gF11TokenSpaceGuid.PcdSmbiosSystemModel|"XiaoMi SM8150"|VOID*|0x0000a301
+  gF11TokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 855 (SM8150v2)"|VOID*|0x0000a302
+  gF11TokenSpaceGuid.PcdSmbiosSystemRetailModel|"msmnile"|VOID*|0x0000a303
+
+  # Boot Applications
+  # 93be6759-7d1a-4d69-986d-d78e54c9f930
+  gF11TokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }|VOID*|0x00000401
