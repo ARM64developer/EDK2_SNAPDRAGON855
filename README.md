@@ -9,6 +9,6 @@ Uefi firmware for sm8150
 
 注意事项: 1.请把edk2和edk2-platform放在../目录  
          2.编译之前先执行./firstrun.sh  
-         3.交叉编译器gcc版本尽量在5-8 （不然可能会炸basetool) 
+         3.交叉编译器gcc版本尽量在5-8(不然可能会炸basetool)  
 Q群:697666196（水友交流群）  
 tg:Renegade Project  
