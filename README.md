@@ -4,11 +4,15 @@ Uefi firmware for sm8150
 贡献者:本组织和我自己,lemon1ice  
 感谢:imnushou的simplefb，让uefi初期能有显示方案  
 
-编译方法:./build.sh  
-需要安装的包: make,gcc-aarch64-linux,python2.7,abootimg等等  
+编译方法:1.安装依赖：sudo apt update  
+                  sudo apt upgrade  
+                  sudo apt install build-essential uuid-dev iasl git nasm abootimg python2.7  
+        2.克隆edk2到../ 目录  
+        3./firstrun.sh  
+        4./build.sh  
 
-注意事项: 1.请把edk2和edk2-platform放在../目录  
-         2.编译之前先执行./firstrun.sh  
-         3.交叉编译器gcc版本尽量在5-8(不然可能会炸basetool)  
-Q群:697666196（水友交流群）  
+注意事项：1. 交叉编译器gcc版本尽量在5-8(不然可能会炸basetool)  
+  
+Q群:697666196（水友交流群） 
+ 
 tg:Renegade Project  
